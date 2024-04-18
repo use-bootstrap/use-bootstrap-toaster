@@ -1,0 +1,72 @@
+{
+  "name": "use-bootstrap-toaster",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Bootstrap toast generator",
+  "license": "MIT",
+  "homepage": "https://use-bootstrap-toaster.js.org",
+  "repository": "https://github.com/use-bootstrap/use-bootstrap-toaster",
+  "bugs": {
+    "url": "https://github.com/use-bootstrap/use-bootstrap-toaster/issues"
+  },
+  "keywords": [
+    "toast",
+    "bootstrap toast",
+    "bootstrap alert",
+    "bootstrap notification"
+  ],
+  "source": "./src/lib/use-bootstrap-toaster.tsx",
+  "main": "./dist/use-bootstrap-toaster.esm.js",
+  "module": "./dist/use-bootstrap-toaster.esm.js",
+  "types": "./dist/use-bootstrap-toaster.esm.d.ts",
+  "libName": "toast",
+  "files": [
+    "dist"
+  ],
+  "browserslist": [
+    ">= 0.5%",
+    "last 2 major versions",
+    "not dead",
+    "Chrome >= 60",
+    "Firefox >= 60",
+    "Firefox ESR",
+    "iOS >= 12",
+    "Safari >= 12",
+    "not Explorer <= 11"
+  ],
+  "scripts": {
+    "dev": "vite --host",
+    "prebuild": "tsc && eslint .",
+    "build": "jalankan build:*",
+    "build:js": "vite build -c vite.config.lib.ts",
+    "build:js:min": "esbuild dist/*.js --minify --outdir=dist --out-extension:.js=.min.js --tsconfig-raw='{}'",
+    "build:docs": "vite build",
+    "postbuild": "purgecss --css docs/assets/*.css --content docs/**/*.{html,js} --safelist use-bootstrap-toaster --output docs/assets/",
+    "preview": "vite preview --host",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "2.15.0",
+    "@fontsource/hind-siliguri": "5.0.12",
+    "@solidjs/router": "0.13.2",
+    "@types/bootstrap": "5.2.10",
+    "@types/node": "20.12.7",
+    "@types/prismjs": "1.26.3",
+    "bootstrap": "5.3.3",
+    "esbuild": "0.20.2",
+    "eslint": "8.57.0",
+    "jalankan": "0.0.1",
+    "prettier": "3.2.5",
+    "prismjs": "1.29.0",
+    "purgecss": "6.0.0",
+    "sass": "1.75.0",
+    "solid-js": "1.8.16",
+    "tslib": "2.6.2",
+    "typescript": "5.4.5",
+    "vite": "5.2.9",
+    "vite-plugin-dts": "3.8.3",
+    "vite-plugin-full-reload": "1.1.0",
+    "vite-plugin-solid": "2.10.2"
+  }
+}
