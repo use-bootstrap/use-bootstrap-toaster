@@ -19,6 +19,7 @@ export default function Install() {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Example</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@${pkg.devDependencies.bootstrap}/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@${pkg.devDependencies.bootstrap}/dist/js/bootstrap.bundle.min.js"></script>
     <script src="node_modules/${pkg.name}/dist/${pkg.name}.min.js"></script>
   </head>
   <body>
@@ -42,6 +43,7 @@ export default function Install() {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Example</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@${pkg.devDependencies.bootstrap}/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@${pkg.devDependencies.bootstrap}/dist/js/bootstrap.bundle.min.js"></script>
     ${cdnJs}
   </head>
   <body>
