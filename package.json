@@ -1,7 +1,7 @@
 {
   "name": "use-bootstrap-toaster",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bootstrap toast generator",
   "license": "MIT",
   "homepage": "https://use-bootstrap-toaster.js.org",
