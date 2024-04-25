@@ -1,6 +1,7 @@
 import { resolve } from 'node:path'
-import { rename } from 'node:fs/promises'
+import { rename, writeFile } from 'node:fs/promises'
 import { defineConfig } from 'vite'
+import { generateDtsBundle } from 'dts-bundle-generator'
 import solid from 'vite-plugin-solid'
 import dts from 'vite-plugin-dts'
 import pkg from './package.json'
@@ -22,7 +23,16 @@ export default defineConfig({
     dts({
       include: pkg.source,
       insertTypesEntry: true,
-      afterBuild: () => rename(`dist/${pkg.name}.d.ts`, pkg.types),
+      afterBuild: async () => {
+        await rename(`dist/${pkg.name}.d.ts`, pkg.types)
+        const types = generateDtsBundle([{
+          filePath: pkg.types,
+          libraries: {
+            inlinedLibraries: ['bootstrap'],
+          },
+        }])
+        await writeFile(pkg.types, types)
+      },
     }),
   ],
 })
