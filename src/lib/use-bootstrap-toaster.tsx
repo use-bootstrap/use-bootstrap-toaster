@@ -39,7 +39,7 @@ interface ToastFunction<T extends any[], R> {
   /**
    * Hide all toasts
    */
-  hide: () => void
+  hide: (BootstrapToast?: typeof Toast) => void
 }
 
 const toast: ToastFunction<[string | OptionalType<Options>, typeof Toast?], {
