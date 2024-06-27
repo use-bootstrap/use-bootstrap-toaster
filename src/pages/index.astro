@@ -1,0 +1,43 @@
+---
+import Layout from '../components/Layout.astro'
+import pkg from '../../package.json'
+const badges = [
+  {
+    src: `https://img.shields.io/npm/v/${pkg.name}`,
+    alt: 'version',
+  },
+  {
+    src: `https://img.shields.io/bundlephobia/minzip/${pkg.name}/${pkg.version}`,
+    alt: 'minified + gzip',
+  },
+  {
+    src: `https://img.shields.io/npm/dm/${pkg.name}`,
+    alt: 'downloads per month',
+  },
+  {
+    src: `https://badgen.net/npm/types/${pkg.name}`,
+    alt: 'types',
+  },
+]
+---
+
+<Layout>
+  <h1>{pkg.name}</h1>
+  <p>{pkg.description}.</p>
+  <div class="d-flex flex-wrap gap-2">
+    {badges.map((badge) => <img src={badge.src} alt={badge.alt} />)}
+  </div>
+  <hr />
+  <h5>Features</h5>
+  <ul>
+    <li><b>Custom content</b>: Customize your toasts by adding your own markup.</li>
+    <li><b>Placement</b>: Place toasts as you need.</li>
+    <li><b>Stacking</b>: Automatically stack your toast.</li>
+  </ul>
+  <hr />
+  <h5>Repository</h5>
+  <a class="link-body-emphasis" href={pkg.repository} target="_blank">{pkg.repository}</a>
+  <hr />
+  <h5>License</h5>
+  <p>{pkg.license}</p>
+</Layout>

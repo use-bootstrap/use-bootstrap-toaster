@@ -1,0 +1,244 @@
+---
+import Layout from '../components/Layout.astro'
+import Code from '../components/Code.astro'
+import BasicDefault from '../components/demo/BasicDefault?raw'
+import BasicCustom from '../components/demo/BasicCustom?raw'
+import HeaderSimple from '../components/demo/HeaderSimple?raw'
+import HeaderObject from '../components/demo/HeaderObject?raw'
+import HeaderCustom from '../components/demo/HeaderCustom?raw'
+import PlacementTopLeft from '../components/demo/PlacementTopLeft?raw'
+import PlacementBottomLeft from '../components/demo/PlacementBottomLeft?raw'
+import PlacementBottomRight from '../components/demo/PlacementBottomRight?raw'
+import OptionNoAnimation from '../components/demo/OptionNoAnimation?raw'
+import OptionNoAutohide from '../components/demo/OptionNoAutohide?raw'
+import OptionDelay from '../components/demo/OptionDelay?raw'
+import OptionGap from '../components/demo/OptionGap?raw'
+import OptionMargin from '../components/demo/OptionMargin?raw'
+import ColorPrimary from '../components/demo/ColorPrimary?raw'
+import ColorSecondary from '../components/demo/ColorSecondary?raw'
+import ColorSuccess from '../components/demo/ColorSuccess?raw'
+import ColorDanger from '../components/demo/ColorDanger?raw'
+import ColorWarning from '../components/demo/ColorWarning?raw'
+import ColorInfo from '../components/demo/ColorInfo?raw'
+import ColorDark from '../components/demo/ColorDark?raw'
+import ColorLight from '../components/demo/ColorLight?raw'
+import MethodHide from '../components/demo/MethodHide?raw'
+import MethodHideAll from '../components/demo/MethodHideAll?raw'
+
+const items = [
+  {
+    key: 'basic',
+    title: 'Basic',
+    demo: [
+      {
+        key: 'basic-default',
+        label: 'Default',
+        script: BasicDefault,
+        active: true,
+      },
+      {
+        key: 'basic-custom',
+        label: 'Custom',
+        script: BasicCustom,
+      },
+    ],
+  },
+  {
+    key: 'header',
+    title: 'Header',
+    demo: [
+      {
+        key: 'header-simple',
+        label: 'Simple',
+        script: HeaderSimple,
+        active: true,
+      },
+      {
+        key: 'header-object',
+        label: 'Object',
+        script: HeaderObject,
+      },
+      {
+        key: 'header-custom',
+        label: 'Custom',
+        script: HeaderCustom,
+      },
+    ],
+  },
+  {
+    key: 'placement',
+    title: 'Placement',
+    demo: [
+      {
+        key: 'placement-top-left',
+        label: 'Top Left',
+        script: PlacementTopLeft,
+        active: true,
+      },
+      {
+        key: 'placement-bottom-left',
+        label: 'Bottom Left',
+        script: PlacementBottomLeft,
+      },
+      {
+        key: 'placement-bottom-right',
+        label: 'Bottom Right',
+        script: PlacementBottomRight,
+      },
+    ],
+  },
+  {
+    key: 'option',
+    title: 'Option',
+    demo: [
+      {
+        key: 'option-no-animation',
+        label: 'No Animation',
+        script: OptionNoAnimation,
+        active: true,
+      },
+      {
+        key: 'option-no-autohide',
+        label: 'No Autohide',
+        script: OptionNoAutohide,
+      },
+      {
+        key: 'option-delay',
+        label: 'Delay',
+        script: OptionDelay,
+      },
+      {
+        key: 'option-gap',
+        label: 'Gap',
+        script: OptionGap,
+      },
+      {
+        key: 'option-margin',
+        label: 'Margin',
+        script: OptionMargin,
+      },
+    ],
+  },
+  {
+    key: 'color-schemes',
+    title: 'Color schemes',
+    class: 'col-12 col-xxl-8',
+    demo: [
+      {
+        key: 'color-Primary',
+        label: 'Primary',
+        script: ColorPrimary,
+        active: true,
+      },
+      {
+        key: 'color-Secondary',
+        label: 'Secondary',
+        script: ColorSecondary,
+      },
+      {
+        key: 'color-Success',
+        label: 'Success',
+        script: ColorSuccess,
+      },
+      {
+        key: 'color-Danger',
+        label: 'Danger',
+        script: ColorDanger,
+      },
+      {
+        key: 'color-Warning',
+        label: 'Warning',
+        script: ColorWarning,
+      },
+      {
+        key: 'color-Info',
+        label: 'Info',
+        script: ColorInfo,
+      },
+      {
+        key: 'color-Dark',
+        label: 'Dark',
+        script: ColorDark,
+      },
+      {
+        key: 'color-Light',
+        label: 'Light',
+        script: ColorLight,
+      },
+    ],
+  },
+  {
+    key: 'methods',
+    title: 'Methods',
+    demo: [
+      {
+        key: 'method-hide',
+        label: 'Hide a toast',
+        script: MethodHide,
+        active: true,
+      },
+      {
+        key: 'method-hide-all',
+        label: 'Hide all toasts',
+        script: MethodHideAll,
+      },
+    ],
+  },
+]
+---
+
+<style lang="scss" is:global>
+  .shiki:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+<Layout title="Demo">
+  <div id="demo">
+    <h1 class="mb-4">Demo</h1>
+    <div class="row g-4">
+      {
+        items.map((item) => (
+          <div class={item.class ?? 'col-12 col-lg-6 col-xxl-4'}>
+            <div class="card h-100">
+              <div class="card-header">{item.title}</div>
+              <div class="card-body">
+                <ul class="nav nav-underline" id={`${item.key}-tab`} role="tablist">
+                  {item.demo.map((i) => (
+                    <li class="nav-item" role="presentation">
+                      <button data-script={i.script} class="nav-link link-body-emphasis" class:list={[{ active: i.active }]} id={`${i.key}-tab`} data-bs-toggle="tab" data-bs-target={`#${i.key}-tab-pane`} type="button" role="tab" aria-controls={`${i.key}-tab-pane`} aria-selected="false">
+                        {i.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                <div class="tab-content mt-3" id={`${item.key}-tab-content`}>
+                  {item.demo.map((i) => (
+                    <div class="tab-pane" class:list={[{ 'show active': i.active }]} id={`${i.key}-tab-pane`} role="tabpanel" aria-labelledby={`${i.key}-tab`} tabindex="0">
+                      <Code lang="javascript" code={i.script} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { Tab, Toast } from 'bootstrap-esm'
+  import toast from '../lib/use-bootstrap-toaster'
+  ;(window as any).bootstrap = {} as any
+  ;(window as any).bootstrap.Toast = Toast
+  ;(window as any).bootstrap.Tab = Tab
+  ;(window as any).toast = toast
+
+  document.querySelectorAll<HTMLButtonElement>('#demo .nav-link').forEach((link) => {
+    link.addEventListener('click', function () {
+      new Function(`return (() => {${this.dataset.script}})()`)()
+    })
+  })
+</script>

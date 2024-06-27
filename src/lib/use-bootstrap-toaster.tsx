@@ -1,4 +1,4 @@
-import type { Toast } from 'bootstrap'
+type Toast = any
 
 const defaultOptions: Options = {
   animation: true,
@@ -30,8 +30,8 @@ function stack(placement: Options['placement'], gap: number) {
   })
 }
 
-function getToaster(BootstrapToast?: typeof Toast) {
-  return BootstrapToast || (window as any).bootstrap?.Toast as typeof Toast
+function getToaster(BootstrapToast?: Toast) {
+  return BootstrapToast || (window as any).bootstrap?.Toast as Toast
 }
 
 interface ToastFunction<T extends any[], R> {
@@ -39,10 +39,10 @@ interface ToastFunction<T extends any[], R> {
   /**
    * Hide all toasts
    */
-  hide: (BootstrapToast?: typeof Toast) => void
+  hide: (BootstrapToast?: Toast) => void
 }
 
-const toast: ToastFunction<[string | OptionalType<Options>, typeof Toast?], {
+const toast: ToastFunction<[string | OptionalType<Options>, Toast?], {
   /**
    * Hide current toast
    */
@@ -154,7 +154,7 @@ const toast: ToastFunction<[string | OptionalType<Options>, typeof Toast?], {
   }
 }
 
-toast.hide = (BootstrapToast?: typeof Toast) => {
+toast.hide = (BootstrapToast?: Toast) => {
   const Toaster = getToaster(BootstrapToast)
   if (Toaster === undefined) {
     throw new Error('Bootstrap Toast is not defined.')
@@ -187,4 +187,9 @@ export interface Options {
 }
 export type OptionalType<T> = {
   [P in keyof T]?: T[P]
+}
+declare global {
+  interface Window {
+    UseBootstrapToasterOptions: OptionalType<Options>
+  }
 }

@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Bootstrap toast generator"><meta name="keywords" content="toast, bootstrap toast, bootstrap alert, bootstrap notification"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Demo | use-bootstrap-toaster</title><script>
+      const storedTheme = localStorage.getItem('theme') || 'light'
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-bs-theme', theme)
+        localStorage.setItem('theme', theme)
+      }
+      setTheme(storedTheme)
+    </script><link rel="stylesheet" href="/assets/demo.DFmieYjV.css">
+<style>.shiki:last-child{margin-bottom:0}
+</style><script type="module" src="/assets/hoisted.OWRjpuET.js"></script></head> <body> <!-- Header --> <div class="sticky-top"> <nav class="navbar navbar-expand bg-body-tertiary py-1" data-bs-theme="dark"> <div class="container"> <a href="/" class="navbar-brand d-flex align-items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg> <span>use-bootstrap-toaster</span> <span class="badge text-bg-light">
+v1.0.3 </span> </a> <div class="ms-auto navbar-nav align-items-center gap-3"> <div class="form-check form-switch navbar-text m-0"> <input class="form-check-input" type="checkbox" role="switch" id="switchTheme"> <label class="form-check-label small" for="switchTheme">Dark Mode</label> <script>
+                const switchTheme = document.getElementById('switchTheme')
+                switchTheme.checked = storedTheme === 'dark'
+                switchTheme.addEventListener('change', function () {
+                  setTheme(this.checked ? 'dark' : 'light')
+                })
+              </script> </div> </div> </div> </nav> <div class="bg-body-tertiary" style="border-bottom:var(--bs-border-width) solid var(--bs-border-color)"> <div class="container pt-2"> <nav class="overflow-x-auto" id="main-nav" style="margin-bottom:-1px"> <ul class="nav nav-underline flex-nowrap"> <li class="nav-item"> <a class="nav-link link-body-emphasis" href="/"> Home </a> </li><li class="nav-item"> <a class="nav-link link-body-emphasis" href="/install.html"> Install </a> </li><li class="nav-item"> <a class="nav-link link-body-emphasis active" href="/demo.html"> Demo </a> </li><li class="nav-item"> <a class="nav-link link-body-emphasis" href="/options.html"> Options </a> </li><li class="nav-item"> <a class="nav-link link-body-emphasis" href="/methods.html"> Methods </a> </li> </ul> </nav> </div> </div> </div> <!-- Main --> <div class="container mt-4 mb-5"> <div id="demo"><h1 class="mb-4">Demo</h1><div class="row g-4"><div class="col-12 col-lg-6 col-xxl-4"><div class="card h-100"><div class="card-header">Basic</div><div class="card-body"><ul class="nav nav-underline" id="basic-tab" role="tablist"><li class="nav-item" role="presentation"><button data-script="toast('Event has been created.')
+" class="nav-link link-body-emphasis active" id="basic-default-tab" data-bs-toggle="tab" data-bs-target="#basic-default-tab-pane" type="button" role="tab" aria-controls="basic-default-tab-pane" aria-selected="false">Default</button></li><li class="nav-item" role="presentation"><button data-script="toast('<strong>Success!</strong> Event has been created')
+" class="nav-link link-body-emphasis" id="basic-custom-tab" data-bs-toggle="tab" data-bs-target="#basic-custom-tab-pane" type="button" role="tab" aria-controls="basic-custom-tab-pane" aria-selected="false">Custom</button></li></ul><div class="tab-content mt-3" id="basic-tab-content"><div class="tab-pane show active" id="basic-default-tab-pane" role="tabpanel" aria-labelledby="basic-default-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">(</span><span style="color:#50A14F;--shiki-dark:#98C379">'Event has been created.'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="basic-custom-tab-pane" role="tabpanel" aria-labelledby="basic-custom-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">(</span><span style="color:#50A14F;--shiki-dark:#98C379">'&#x3C;strong>Success!&#x3C;/strong> Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span></code></pre></div></div></div></div></div><div class="col-12 col-lg-6 col-xxl-4"><div class="card h-100"><div class="card-header">Header</div><div class="card-body"><ul class="nav nav-underline" id="header-tab" role="tablist"><li class="nav-item" role="presentation"><button data-script="toast({
+  header: 'Success',
+  body: 'Event has been created',
+})
+" class="nav-link link-body-emphasis active" id="header-simple-tab" data-bs-toggle="tab" data-bs-target="#header-simple-tab-pane" type="button" role="tab" aria-controls="header-simple-tab-pane" aria-selected="false">Simple</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  header: {
+    icon: '<svg width=&#34;1.5em&#34; height=&#34;1.5em&#34; class=&#34;text-success me-2&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke=&#34;currentColor&#34;><path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;2&#34; d=&#34;M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z&#34;></path></svg>',
+    title: 'Success',
+    ago: '11 mins ago',
+    closeBtn: true,
+  },
+  body: 'Event has been created',
+})
+" class="nav-link link-body-emphasis" id="header-object-tab" data-bs-toggle="tab" data-bs-target="#header-object-tab-pane" type="button" role="tab" aria-controls="header-object-tab-pane" aria-selected="false">Object</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  header: '<strong class=&#34;me-auto&#34;>Event has been created</strong><button type=&#34;button&#34; class=&#34;btn btn-sm btn-secondary&#34; data-bs-dismiss=&#34;toast&#34;>Close</button>',
+  body: 'Monday, January 3rd at 6:00pm',
+})
+" class="nav-link link-body-emphasis" id="header-custom-tab" data-bs-toggle="tab" data-bs-target="#header-custom-tab-pane" type="button" role="tab" aria-controls="header-custom-tab-pane" aria-selected="false">Custom</button></li></ul><div class="tab-content mt-3" id="header-tab-content"><div class="tab-pane show active" id="header-simple-tab-pane" role="tabpanel" aria-labelledby="header-simple-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  header</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Success'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="header-object-tab-pane" role="tabpanel" aria-labelledby="header-object-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  header</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">    icon</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> '&#x3C;svg width="1.5em" height="1.5em" class="text-success me-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">&#x3C;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">&#x3C;/path>&#x3C;/svg>'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">    title</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Success'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">    ago</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> '11 mins ago'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">    closeBtn</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> true</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="header-custom-tab-pane" role="tabpanel" aria-labelledby="header-custom-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  header</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> '&#x3C;strong class="me-auto">Event has been created&#x3C;/strong>&#x3C;button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="toast">Close&#x3C;/button>'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Monday, January 3rd at 6:00pm'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div></div></div></div></div><div class="col-12 col-lg-6 col-xxl-4"><div class="card h-100"><div class="card-header">Placement</div><div class="card-body"><ul class="nav nav-underline" id="placement-tab" role="tablist"><li class="nav-item" role="presentation"><button data-script="toast({
+  body: 'Event has been created',
+  placement: 'top-left',
+})
+" class="nav-link link-body-emphasis active" id="placement-top-left-tab" data-bs-toggle="tab" data-bs-target="#placement-top-left-tab-pane" type="button" role="tab" aria-controls="placement-top-left-tab-pane" aria-selected="false">Top Left</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  body: 'Event has been created',
+  placement: 'bottom-left',
+})
+" class="nav-link link-body-emphasis" id="placement-bottom-left-tab" data-bs-toggle="tab" data-bs-target="#placement-bottom-left-tab-pane" type="button" role="tab" aria-controls="placement-bottom-left-tab-pane" aria-selected="false">Bottom Left</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  body: 'Event has been created',
+  placement: 'bottom-right',
+})
+" class="nav-link link-body-emphasis" id="placement-bottom-right-tab" data-bs-toggle="tab" data-bs-target="#placement-bottom-right-tab-pane" type="button" role="tab" aria-controls="placement-bottom-right-tab-pane" aria-selected="false">Bottom Right</button></li></ul><div class="tab-content mt-3" id="placement-tab-content"><div class="tab-pane show active" id="placement-top-left-tab-pane" role="tabpanel" aria-labelledby="placement-top-left-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  placement</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'top-left'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="placement-bottom-left-tab-pane" role="tabpanel" aria-labelledby="placement-bottom-left-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  placement</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'bottom-left'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="placement-bottom-right-tab-pane" role="tabpanel" aria-labelledby="placement-bottom-right-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  placement</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'bottom-right'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div></div></div></div></div><div class="col-12 col-lg-6 col-xxl-4"><div class="card h-100"><div class="card-header">Option</div><div class="card-body"><ul class="nav nav-underline" id="option-tab" role="tablist"><li class="nav-item" role="presentation"><button data-script="toast({
+  body: 'Event has been created',
+  animation: false,
+})
+" class="nav-link link-body-emphasis active" id="option-no-animation-tab" data-bs-toggle="tab" data-bs-target="#option-no-animation-tab-pane" type="button" role="tab" aria-controls="option-no-animation-tab-pane" aria-selected="false">No Animation</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  header: {
+    title: 'Success',
+    closeBtn: true,
+  },
+  body: 'Event has been created',
+  autohide: false,
+})
+" class="nav-link link-body-emphasis" id="option-no-autohide-tab" data-bs-toggle="tab" data-bs-target="#option-no-autohide-tab-pane" type="button" role="tab" aria-controls="option-no-autohide-tab-pane" aria-selected="false">No Autohide</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  body: 'Event has been created',
+  delay: 1000,
+})
+" class="nav-link link-body-emphasis" id="option-delay-tab" data-bs-toggle="tab" data-bs-target="#option-delay-tab-pane" type="button" role="tab" aria-controls="option-delay-tab-pane" aria-selected="false">Delay</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  body: 'Event has been created',
+  gap: 64,
+  delay: 1000,
+})
+" class="nav-link link-body-emphasis" id="option-gap-tab" data-bs-toggle="tab" data-bs-target="#option-gap-tab-pane" type="button" role="tab" aria-controls="option-gap-tab-pane" aria-selected="false">Gap</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  body: 'Event has been created',
+  margin: '5rem',
+  delay: 1000,
+})
+" class="nav-link link-body-emphasis" id="option-margin-tab" data-bs-toggle="tab" data-bs-target="#option-margin-tab-pane" type="button" role="tab" aria-controls="option-margin-tab-pane" aria-selected="false">Margin</button></li></ul><div class="tab-content mt-3" id="option-tab-content"><div class="tab-pane show active" id="option-no-animation-tab-pane" role="tabpanel" aria-labelledby="option-no-animation-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  animation</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> false</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="option-no-autohide-tab-pane" role="tabpanel" aria-labelledby="option-no-autohide-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  header</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">    title</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Success'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">    closeBtn</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> true</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">  },</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  autohide</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> false</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="option-delay-tab-pane" role="tabpanel" aria-labelledby="option-delay-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  delay</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> 1000</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="option-gap-tab-pane" role="tabpanel" aria-labelledby="option-gap-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  gap</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> 64</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  delay</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> 1000</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="option-margin-tab-pane" role="tabpanel" aria-labelledby="option-margin-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  margin</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> '5rem'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  delay</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> 1000</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div></div></div></div></div><div class="col-12 col-xxl-8"><div class="card h-100"><div class="card-header">Color schemes</div><div class="card-body"><ul class="nav nav-underline" id="color-schemes-tab" role="tablist"><li class="nav-item" role="presentation"><button data-script="toast({
+  classes: `text-bg-primary border-0`,
+  body: `
+  <div class=&#34;d-flex w-100&#34; data-bs-theme=&#34;dark&#34;>
+    <div class=&#34;flex-grow-1&#34;>
+      Hello, world! This is a toast message.
+    </div>
+    <button type=&#34;button&#34; class=&#34;btn-close flex-shrink-0&#34; data-bs-dismiss=&#34;toast&#34; aria-label=&#34;Close&#34;></button>
+  </div>`,
+})
+" class="nav-link link-body-emphasis active" id="color-Primary-tab" data-bs-toggle="tab" data-bs-target="#color-Primary-tab-pane" type="button" role="tab" aria-controls="color-Primary-tab-pane" aria-selected="false">Primary</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  classes: `text-bg-secondary border-0`,
+  body: `
+  <div class=&#34;d-flex w-100&#34; data-bs-theme=&#34;dark&#34;>
+    <div class=&#34;flex-grow-1&#34;>
+      Hello, world! This is a toast message.
+    </div>
+    <button type=&#34;button&#34; class=&#34;btn-close flex-shrink-0&#34; data-bs-dismiss=&#34;toast&#34; aria-label=&#34;Close&#34;></button>
+  </div>`,
+})
+" class="nav-link link-body-emphasis" id="color-Secondary-tab" data-bs-toggle="tab" data-bs-target="#color-Secondary-tab-pane" type="button" role="tab" aria-controls="color-Secondary-tab-pane" aria-selected="false">Secondary</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  classes: `text-bg-success border-0`,
+  body: `
+  <div class=&#34;d-flex w-100&#34; data-bs-theme=&#34;dark&#34;>
+    <div class=&#34;flex-grow-1&#34;>
+      Hello, world! This is a toast message.
+    </div>
+    <button type=&#34;button&#34; class=&#34;btn-close flex-shrink-0&#34; data-bs-dismiss=&#34;toast&#34; aria-label=&#34;Close&#34;></button>
+  </div>`,
+})
+" class="nav-link link-body-emphasis" id="color-Success-tab" data-bs-toggle="tab" data-bs-target="#color-Success-tab-pane" type="button" role="tab" aria-controls="color-Success-tab-pane" aria-selected="false">Success</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  classes: `text-bg-danger border-0`,
+  body: `
+  <div class=&#34;d-flex w-100&#34; data-bs-theme=&#34;dark&#34;>
+    <div class=&#34;flex-grow-1&#34;>
+      Hello, world! This is a toast message.
+    </div>
+    <button type=&#34;button&#34; class=&#34;btn-close flex-shrink-0&#34; data-bs-dismiss=&#34;toast&#34; aria-label=&#34;Close&#34;></button>
+  </div>`,
+})
+" class="nav-link link-body-emphasis" id="color-Danger-tab" data-bs-toggle="tab" data-bs-target="#color-Danger-tab-pane" type="button" role="tab" aria-controls="color-Danger-tab-pane" aria-selected="false">Danger</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  classes: `text-bg-warning border-0`,
+  body: `
+  <div class=&#34;d-flex w-100&#34;>
+    <div class=&#34;flex-grow-1&#34;>
+      Hello, world! This is a toast message.
+    </div>
+    <button type=&#34;button&#34; class=&#34;btn-close flex-shrink-0&#34; data-bs-dismiss=&#34;toast&#34; aria-label=&#34;Close&#34;></button>
+  </div>`,
+})
+" class="nav-link link-body-emphasis" id="color-Warning-tab" data-bs-toggle="tab" data-bs-target="#color-Warning-tab-pane" type="button" role="tab" aria-controls="color-Warning-tab-pane" aria-selected="false">Warning</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  classes: `text-bg-info border-0`,
+  body: `
+  <div class=&#34;d-flex w-100&#34;>
+    <div class=&#34;flex-grow-1&#34;>
+      Hello, world! This is a toast message.
+    </div>
+    <button type=&#34;button&#34; class=&#34;btn-close flex-shrink-0&#34; data-bs-dismiss=&#34;toast&#34; aria-label=&#34;Close&#34;></button>
+  </div>`,
+})
+" class="nav-link link-body-emphasis" id="color-Info-tab" data-bs-toggle="tab" data-bs-target="#color-Info-tab-pane" type="button" role="tab" aria-controls="color-Info-tab-pane" aria-selected="false">Info</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  classes: `text-bg-dark border-0`,
+  body: `
+  <div class=&#34;d-flex w-100&#34; data-bs-theme=&#34;dark&#34;>
+    <div class=&#34;flex-grow-1&#34;>
+      Hello, world! This is a toast message.
+    </div>
+    <button type=&#34;button&#34; class=&#34;btn-close flex-shrink-0&#34; data-bs-dismiss=&#34;toast&#34; aria-label=&#34;Close&#34;></button>
+  </div>`,
+})
+" class="nav-link link-body-emphasis" id="color-Dark-tab" data-bs-toggle="tab" data-bs-target="#color-Dark-tab-pane" type="button" role="tab" aria-controls="color-Dark-tab-pane" aria-selected="false">Dark</button></li><li class="nav-item" role="presentation"><button data-script="toast({
+  classes: `text-bg-light border-0`,
+  body: `
+  <div class=&#34;d-flex w-100&#34;>
+    <div class=&#34;flex-grow-1&#34;>
+      Hello, world! This is a toast message.
+    </div>
+    <button type=&#34;button&#34; class=&#34;btn-close flex-shrink-0&#34; data-bs-dismiss=&#34;toast&#34; aria-label=&#34;Close&#34;></button>
+  </div>`,
+})
+" class="nav-link link-body-emphasis" id="color-Light-tab" data-bs-toggle="tab" data-bs-target="#color-Light-tab-pane" type="button" role="tab" aria-controls="color-Light-tab-pane" aria-selected="false">Light</button></li></ul><div class="tab-content mt-3" id="color-schemes-tab-content"><div class="tab-pane show active" id="color-Primary-tab-pane" role="tabpanel" aria-labelledby="color-Primary-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  classes</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `text-bg-primary border-0`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;div class="d-flex w-100" data-bs-theme="dark"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;div class="flex-grow-1"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">      Hello, world! This is a toast message.</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;/div></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="toast" aria-label="Close">&#x3C;/button></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;/div>`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="color-Secondary-tab-pane" role="tabpanel" aria-labelledby="color-Secondary-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  classes</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `text-bg-secondary border-0`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;div class="d-flex w-100" data-bs-theme="dark"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;div class="flex-grow-1"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">      Hello, world! This is a toast message.</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;/div></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="toast" aria-label="Close">&#x3C;/button></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;/div>`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="color-Success-tab-pane" role="tabpanel" aria-labelledby="color-Success-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  classes</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `text-bg-success border-0`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;div class="d-flex w-100" data-bs-theme="dark"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;div class="flex-grow-1"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">      Hello, world! This is a toast message.</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;/div></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="toast" aria-label="Close">&#x3C;/button></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;/div>`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="color-Danger-tab-pane" role="tabpanel" aria-labelledby="color-Danger-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  classes</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `text-bg-danger border-0`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;div class="d-flex w-100" data-bs-theme="dark"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;div class="flex-grow-1"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">      Hello, world! This is a toast message.</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;/div></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="toast" aria-label="Close">&#x3C;/button></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;/div>`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="color-Warning-tab-pane" role="tabpanel" aria-labelledby="color-Warning-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  classes</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `text-bg-warning border-0`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;div class="d-flex w-100"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;div class="flex-grow-1"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">      Hello, world! This is a toast message.</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;/div></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="toast" aria-label="Close">&#x3C;/button></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;/div>`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="color-Info-tab-pane" role="tabpanel" aria-labelledby="color-Info-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  classes</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `text-bg-info border-0`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;div class="d-flex w-100"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;div class="flex-grow-1"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">      Hello, world! This is a toast message.</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;/div></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="toast" aria-label="Close">&#x3C;/button></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;/div>`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="color-Dark-tab-pane" role="tabpanel" aria-labelledby="color-Dark-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  classes</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `text-bg-dark border-0`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;div class="d-flex w-100" data-bs-theme="dark"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;div class="flex-grow-1"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">      Hello, world! This is a toast message.</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;/div></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="toast" aria-label="Close">&#x3C;/button></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;/div>`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="color-Light-tab-pane" role="tabpanel" aria-labelledby="color-Light-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  classes</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `text-bg-light border-0`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> `</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;div class="d-flex w-100"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;div class="flex-grow-1"></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">      Hello, world! This is a toast message.</span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;/div></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">    &#x3C;button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="toast" aria-label="Close">&#x3C;/button></span></span>
+<span class="line"><span style="color:#50A14F;--shiki-dark:#98C379">  &#x3C;/div>`</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span></code></pre></div></div></div></div></div><div class="col-12 col-lg-6 col-xxl-4"><div class="card h-100"><div class="card-header">Methods</div><div class="card-body"><ul class="nav nav-underline" id="methods-tab" role="tablist"><li class="nav-item" role="presentation"><button data-script="const example = toast({
+  body: 'Event has been created',
+  autohide: false,
+})
+
+setTimeout(() => {
+  example.hide()
+}, 1000)
+" class="nav-link link-body-emphasis active" id="method-hide-tab" data-bs-toggle="tab" data-bs-target="#method-hide-tab-pane" type="button" role="tab" aria-controls="method-hide-tab-pane" aria-selected="false">Hide a toast</button></li><li class="nav-item" role="presentation"><button data-script="toast.hide()
+" class="nav-link link-body-emphasis" id="method-hide-all-tab" data-bs-toggle="tab" data-bs-target="#method-hide-all-tab-pane" type="button" role="tab" aria-controls="method-hide-all-tab-pane" aria-selected="false">Hide all toasts</button></li></ul><div class="tab-content mt-3" id="methods-tab-content"><div class="tab-pane show active" id="method-hide-tab-pane" role="tabpanel" aria-labelledby="method-hide-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#A626A4;--shiki-dark:#C678DD">const</span><span style="color:#986801;--shiki-dark:#E5C07B"> example</span><span style="color:#0184BC;--shiki-dark:#56B6C2"> =</span><span style="color:#4078F2;--shiki-dark:#61AFEF"> toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">({</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  body</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#50A14F;--shiki-dark:#98C379"> 'Event has been created'</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#E45649;--shiki-dark:#E06C75">  autohide</span><span style="color:#0184BC;--shiki-dark:#ABB2BF">:</span><span style="color:#986801;--shiki-dark:#D19A66"> false</span><span style="color:#383A42;--shiki-dark:#ABB2BF">,</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">})</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4078F2;--shiki-dark:#61AFEF">setTimeout</span><span style="color:#383A42;--shiki-dark:#ABB2BF">(() </span><span style="color:#A626A4;--shiki-dark:#C678DD">=></span><span style="color:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#E5C07B">  example</span><span style="color:#383A42;--shiki-dark:#ABB2BF">.</span><span style="color:#4078F2;--shiki-dark:#61AFEF">hide</span><span style="color:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"><span style="color:#383A42;--shiki-dark:#ABB2BF">}, </span><span style="color:#986801;--shiki-dark:#D19A66">1000</span><span style="color:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span></code></pre></div><div class="tab-pane" id="method-hide-all-tab-pane" role="tabpanel" aria-labelledby="method-hide-all-tab" tabindex="0"><pre class="shiki shiki-themes one-light one-dark-pro" style="background-color:#FAFAFA;--shiki-dark-bg:#282c34;color:#383A42;--shiki-dark:#abb2bf" tabindex="0"><code><span class="line"><span style="color:#383A42;--shiki-dark:#E5C07B">toast</span><span style="color:#383A42;--shiki-dark:#ABB2BF">.</span><span style="color:#4078F2;--shiki-dark:#61AFEF">hide</span><span style="color:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"></span></code></pre></div></div></div></div></div></div></div> </div> <!-- Footer --> <div class="container"> <nav aria-label="Page navigation"> <ul class="pagination justify-content-between"> <li class="page-item"> <a class="page-link link-body-emphasis rounded d-flex align-items-center gap-2" href="/install.html"> <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path>  </svg> Install </a> </li> <li class="page-item"> <a class="page-link link-body-emphasis rounded d-flex align-items-center gap-2" href="/options.html"> Options <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  <path d="M5 12h14"></path> <path d="m12 5 7 7-7 7"></path>  </svg> </a> </li> </ul> </nav> </div> </body></html>

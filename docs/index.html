@@ -1,19 +1,15 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bootstrap toast generator" />
-  <meta name="keywords" content="toast, bootstrap toast, bootstrap alert, bootstrap notification" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>use-bootstrap-toaster | Bootstrap toast generator</title>
-  <script type="module" crossorigin src="/assets/index-B47QTey_.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Cv0tOV-6.css">
-</head>
-
-<body>
-  <div id="app"></div>
-</body>
-
-</html>
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Bootstrap toast generator"><meta name="keywords" content="toast, bootstrap toast, bootstrap alert, bootstrap notification"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>use-bootstrap-toaster | Bootstrap toast generator</title><script>
+      const storedTheme = localStorage.getItem('theme') || 'light'
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-bs-theme', theme)
+        localStorage.setItem('theme', theme)
+      }
+      setTheme(storedTheme)
+    </script><link rel="stylesheet" href="/assets/demo.DFmieYjV.css"></head> <body> <!-- Header --> <div class="sticky-top"> <nav class="navbar navbar-expand bg-body-tertiary py-1" data-bs-theme="dark"> <div class="container"> <a href="/" class="navbar-brand d-flex align-items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg> <span>use-bootstrap-toaster</span> <span class="badge text-bg-light">
+v1.0.3 </span> </a> <div class="ms-auto navbar-nav align-items-center gap-3"> <div class="form-check form-switch navbar-text m-0"> <input class="form-check-input" type="checkbox" role="switch" id="switchTheme"> <label class="form-check-label small" for="switchTheme">Dark Mode</label> <script>
+                const switchTheme = document.getElementById('switchTheme')
+                switchTheme.checked = storedTheme === 'dark'
+                switchTheme.addEventListener('change', function () {
+                  setTheme(this.checked ? 'dark' : 'light')
+                })
+              </script> </div> </div> </div> </nav> <div class="bg-body-tertiary" style="border-bottom:var(--bs-border-width) solid var(--bs-border-color)"> <div class="container pt-2"> <nav class="overflow-x-auto" id="main-nav" style="margin-bottom:-1px"> <ul class="nav nav-underline flex-nowrap"> <li class="nav-item"> <a class="nav-link link-body-emphasis active" href="/"> Home </a> </li><li class="nav-item"> <a class="nav-link link-body-emphasis" href="/install.html"> Install </a> </li><li class="nav-item"> <a class="nav-link link-body-emphasis" href="/demo.html"> Demo </a> </li><li class="nav-item"> <a class="nav-link link-body-emphasis" href="/options.html"> Options </a> </li><li class="nav-item"> <a class="nav-link link-body-emphasis" href="/methods.html"> Methods </a> </li> </ul> </nav> </div> </div> </div> <!-- Main --> <div class="container mt-4 mb-5">  <h1>use-bootstrap-toaster</h1> <p>Bootstrap toast generator.</p> <div class="d-flex flex-wrap gap-2"> <img src="https://img.shields.io/npm/v/use-bootstrap-toaster" alt="version"><img src="https://img.shields.io/bundlephobia/minzip/use-bootstrap-toaster/1.0.3" alt="minified + gzip"><img src="https://img.shields.io/npm/dm/use-bootstrap-toaster" alt="downloads per month"><img src="https://badgen.net/npm/types/use-bootstrap-toaster" alt="types"> </div> <hr> <h5>Features</h5> <ul> <li><b>Custom content</b>: Customize your toasts by adding your own markup.</li> <li><b>Placement</b>: Place toasts as you need.</li> <li><b>Stacking</b>: Automatically stack your toast.</li> </ul> <hr> <h5>Repository</h5> <a class="link-body-emphasis" href="https://github.com/use-bootstrap/use-bootstrap-toaster" target="_blank">https://github.com/use-bootstrap/use-bootstrap-toaster</a> <hr> <h5>License</h5> <p>MIT</p>  </div> <!-- Footer --> <div class="container"> <nav aria-label="Page navigation"> <ul class="pagination justify-content-end">  <li class="page-item"> <a class="page-link link-body-emphasis rounded d-flex align-items-center gap-2" href="/install.html"> Install <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">  <path d="M5 12h14"></path> <path d="m12 5 7 7-7 7"></path>  </svg> </a> </li> </ul> </nav> </div> </body></html>
