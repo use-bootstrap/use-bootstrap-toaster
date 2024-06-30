@@ -22,10 +22,4 @@ export default antfu(
       'no-alert': 'off',
     },
   },
-  {
-    files: ['src/components/install/*.ts'],
-    rules: {
-      'unused-imports/no-unused-vars': 'off',
-    },
-  },
 )
